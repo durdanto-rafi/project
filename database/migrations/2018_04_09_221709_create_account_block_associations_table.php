@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRoleTypesTable extends Migration
+class CreateAccountBlockAssociationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateRoleTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('role_types', function (Blueprint $table) {
-            $table->increments('id')->unique();
-            $table->string('name')->unique();
+        Schema::create('account_block_associations', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('account_id');
+            $table->string('block_id');
+            $table->string('block_stat_id');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateRoleTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role_types');
+        Schema::dropIfExists('account_block_associations');
     }
 }
