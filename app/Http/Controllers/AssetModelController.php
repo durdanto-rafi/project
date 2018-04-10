@@ -34,7 +34,7 @@ class AssetModelController extends Controller
         $assetmodels = $request->isMethod('put') ? AssetModel::findOrFail($request->id) : new AssetModel;
 
         $assetmodels->id = $request->input('id');
-        $assetmodels->account_id = $request->input('account_id');
+        $assetmodels->company_id = $request->input('company_id');
         $assetmodels->model_type = $request->input('model_type');
         $assetmodels->model_image = $request->input('model_image');
         $assetmodels->model_rent = $request->input('model_rent');

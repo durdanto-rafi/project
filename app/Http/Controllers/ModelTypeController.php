@@ -34,7 +34,7 @@ class ModelTypeController extends Controller
         $modeltypes = $request->isMethod('put') ? ModelType::findOrFail($request->id) : new ModelType;
 
         $modeltypes->id = $request->input('id');
-        $modeltypes->account_id = $request->input('account_id');
+        $modeltypes->company_id = $request->input('company_id');
         $modeltypes->model_make = $request->input('model_make');
         $modeltypes->model_type = $request->input('model_type');
         if($modeltypes->save()) {

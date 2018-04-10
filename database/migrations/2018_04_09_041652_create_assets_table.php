@@ -15,7 +15,7 @@ class CreateAssetsTable extends Migration
     {
         Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('account_id');
+            $table->string('company_id');
             $table->string('model_id');
             $table->string('asset_name');
             $table->string('label_id');

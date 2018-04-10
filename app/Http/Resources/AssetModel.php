@@ -12,7 +12,7 @@ class AssetModel extends JsonResource
 
         return [
             'id' => $this->id,
-            'account_id' => $this->account_id,
+            'company_id' => $this->company_id,
             'model_type' => $this->model_type,
             'model_image' => $this->model_image,
             'model_rent' => $this->model_rent,
