@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Company;
 use App\Http\Resources\Company as CompanyResource;
+use DB;
 
 class CompanyController extends Controller
 {
@@ -76,5 +77,20 @@ class CompanyController extends Controller
         if($companies->delete()) {
             return new CompanyResource($companies);
         }    
+    }
+
+    /**
+     * Load companies.
+     *$
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function loadCompanies()
+    {
+        // Get companies
+        $companies = DB::table("demo_state")->lists("name","id");
+
+        // Return single companies as a resource
+        return response()->json(['companies' => $companies]);
     }
 }
