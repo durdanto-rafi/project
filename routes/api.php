@@ -54,6 +54,7 @@ Route::put('company', 'CompanyController@store');
 // Delete company
 Route::delete('company/{id}', 'CompanyController@destroy');
 
+
 #Contact Routes
 // List Contacts
 Route::get('contacts', 'ContactController@index');

@@ -88,7 +88,7 @@ class CompanyController extends Controller
     public function loadCompanies()
     {
         // Get companies
-        $companies = DB::table("demo_state")->lists("name","id");
+        $companies = Company::pluck("company_name","id")->all();
 
         // Return single companies as a resource
         return response()->json(['companies' => $companies]);

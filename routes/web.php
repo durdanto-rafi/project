@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('app');
 });
+
+// Load companies
+Route::get('loadCompanies', ['as'=>'loadCompanies','uses'=>'CompanyController@loadCompanies']);

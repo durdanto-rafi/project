@@ -76,10 +76,10 @@
                             </div>
                         </div>
 
-                        <div class="col-xs-6 col-sm-6 col-md-6">
+                        <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
                                 <strong>@lang('answerScript.course')</strong>
-                                <select class="form-control" id="ddlExamType" name="exam_type_id">
+                                <select class="form-control" id="ddlCompany" name="exam_type_id">
                             </div>
                         </div>
 
@@ -142,6 +142,25 @@
     <script src="{{ asset('/js/sweetalert-dev.js') }}"></script>
     <!-- Custom -->
     <script src="{{ asset('/js/custom.js') }}"></script>
+
+    <script>
+
+    window.onload = function () {
+        var token = {!! json_encode(['csrfToken' => csrf_token(),]) !!}
+        console.log(token)
+        $.ajax({
+            url: "{{ route('loadCompanies') }}",
+            method: 'GET',
+            data: {_token: token },
+            success: function (data) {
+                $('#ddlCompany').empty();
+                $.each(data.companies, function(key, value) {
+                    $('#ddlCompany').append('<option value="'+ key +'">'+ value +'</option>');
+                });
+            }
+        });
+    };
+    </script>
 @show
 </html>
 
