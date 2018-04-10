@@ -206,3 +206,15 @@ Route::post('activity', 'ActivityController@store');
 Route::put('activity', 'ActivityController@store');
 // Delete Activity
 Route::delete('activity/{id}', 'ActivityController@destroy');
+
+# Label Routes
+// List Labels
+Route::get('labelnames', 'LabelNameController@index');
+//  Activity
+Route::get('labelname/{id}', 'LabelNameController@show');
+// Create new Activity
+Route::post('labelname', 'LabelNameController@store');
+// Update Activity
+Route::put('labelname', 'LabelNameController@store');
+// Delete Activity
+Route::delete('labelname/{id}', 'LabelNameController@destroy');

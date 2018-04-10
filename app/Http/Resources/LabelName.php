@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ModelType extends JsonResource
+class LabelName extends JsonResource
 {
     public function toArray($request)
     {
@@ -12,9 +12,8 @@ class ModelType extends JsonResource
 
         return [
             'id' => $this->id,
-            'account_id' => $this->company_id,
-            'model_make' => $this->model_make,
-            'model_type' => $this->model_type
+            'name' => $this->name,
+            'description' => $this->description
         ];
     }
     public function with($request) {
