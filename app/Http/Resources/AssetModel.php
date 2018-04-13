@@ -18,7 +18,8 @@ class AssetModel extends JsonResource
             'model_rent' => $this->model_rent,
             'model_rent_frequency' => $this->model_rent_frequency,
             'minimum_stock' => $this->minimum_stock,
-            'current_stock' => $this->current_stock
+            'current_stock' => $this->current_stock,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

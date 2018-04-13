@@ -12,7 +12,8 @@ class BlockStat extends JsonResource
 
         return [
             'id' => $this->id,
-            'block_stat_name' => $this->block_stat_name
+            'block_stat_name' => $this->block_stat_name,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

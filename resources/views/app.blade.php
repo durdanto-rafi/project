@@ -67,42 +67,37 @@
                     <div class="box-header with-border">
                         <div class="row">
                             <div class="col-lg-12 margin-tb">
-                                <div class="pull-left">
-                                    <h2>@lang('question.list')</h2>
-                                </div>
-                                <div class="pull-right">
-                                    <a class="btn btn-success" href="">@lang('question.create')</a>
+                                <div class="row">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Company  Name</th>
+                                                <th>Model Make</th>
+                                                <th>Model Type</th>
+                                                <th>Asset Name</th>
+                                                <th>Asset Description</th>
+                                                <th>Asset Quality</th>
+                                                <th>Asset Cost</th>
+                                                <th>Asset Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tblAssets">
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-xs-12 col-sm-12 col-md-12">
                             <div class="form-group">
-                                <strong>@lang('answerScript.course')</strong>
+                                <strong>Select Company</strong>
                                 <select class="form-control" id="ddlCompany" name="exam_type_id">
                             </div>
                         </div>
 
-                        @if ($message = Session::get('success'))
-                            <div class="alert alert-success">
-                                <p>{{ $message }}</p>
-                            </div>
-                        @endif
-
-                        
-
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>@lang('question.index')</th>
-                                    <th>@lang('question.question_title')</th>
-                                    <th>@lang('question.status')</th>
-                                    <th width="200px">@lang('question.action')</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tblQuestions">
-                            </tbody>
-                        </table>
+                       
+                    
                     </div>
                 </div>
                 <!-- /.box -->
@@ -160,6 +155,41 @@
             }
         });
     };
+
+    // Loading Subjects's Contents 
+    $('#ddlCompany').change(function () {
+        var companyId = $(this).val();
+        var token =  "{{csrf_token()}}";
+        //console.log(companyId, token)
+        $.ajax({
+            url: "{{ route('getAssetsByCompanyId') }}",
+            method: 'POST',
+            data: { companyId: companyId, _token: token },
+            success: function (data) {
+                console.log(data)
+
+                var row = [];
+                $.each(data.assets, function(i, asset) {
+                    row.push("<tr>");
+                    row.push("<td>" + (i + 1) + "</td>");
+                    row.push("<td>" + asset.company_name + "</td>");
+                    row.push("<td>" + asset.model_make + "</td>");  
+                    row.push("<td>" + asset.model_type + "</td>"); 
+                    row.push("<td>" + asset.asset_name + "</td>");
+                    row.push("<td>" + asset.asset_description + "</td>");
+                    row.push("<td>" + asset.asset_quality + "</td>");
+                    row.push("<td>" + asset.asset_cost + "</td>");
+                    row.push("<td>" + asset.asset_status + "</td>");      
+                    row.push("</tr>");
+                });
+                $('#tblAssets').html(row.join(""));
+
+                console.log(row);
+            }
+        });
+    });
+
+
     </script>
 @show
 </html>

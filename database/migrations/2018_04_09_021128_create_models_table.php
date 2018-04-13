@@ -23,6 +23,7 @@ class CreateModelsTable extends Migration
             $table->string('model_rent_frequency');
             $table->string('minimum_stock');
             $table->string('current_stock');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

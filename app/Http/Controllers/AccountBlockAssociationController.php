@@ -32,12 +32,11 @@ class AccountBlockAssociationController extends Controller
     public function store(Request $request)
     {
         $accountblockassociations = $request->isMethod('put') ? AccountBlockAssociation::findOrFail($request->id) : new AccountBlockAssociation;
-
         $accountblockassociations->id = $request->input('id');
         $accountblockassociations->account_id = $request->input('account_id');
         $accountblockassociations->block_id = $request->input('block_id');
         $accountblockassociations->block_stat_id = $request->input('block_stat_id');
-
+        $accountblockassociations->update_by = $request->input('update_by');
         if($accountblockassociations->save()) {
             return new AccountBlockAssociationResource($accountblockassociations);
         }

@@ -13,7 +13,9 @@ class Account extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'email' => $this->email
+            'email' => $this->email,
+            'update_by' => $this->update_by
+            
         ];
     }
     public function with($request) {

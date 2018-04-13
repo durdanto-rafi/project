@@ -21,6 +21,7 @@ class CreateContactsTable extends Migration
             $table->string('links');
             $table->string('email');
             $table->string('password');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

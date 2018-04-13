@@ -16,7 +16,8 @@ class Company extends JsonResource
             'company_name' => $this->company_name,
             'is_customer' => $this->is_customer,
             'links' => $this->email,
-            'links' => $this->address
+            'links' => $this->address,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

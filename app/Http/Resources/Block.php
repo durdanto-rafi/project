@@ -12,7 +12,8 @@ class Block extends JsonResource
 
         return [
             'id' => $this->id,
-            'blocks_name' => $this->blocks_name
+            'blocks_name' => $this->blocks_name,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

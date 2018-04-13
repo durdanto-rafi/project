@@ -219,3 +219,63 @@ Route::post('labelname', 'LabelNameController@store');
 Route::put('labelname', 'LabelNameController@store');
 // Delete Activity
 Route::delete('labelname/{id}', 'LabelNameController@destroy');
+
+# Job Type Routes
+// List job types
+Route::get('jobtypes', 'JobTypeController@index');
+//  get one job type
+Route::get('jobtype/{id}', 'JobTypeController@show');
+// Create new job type
+Route::post('jobtype', 'JobTypeController@store');
+// Update job type
+Route::put('jobtype', 'JobTypeController@store');
+// Delete job type
+Route::delete('jobtype/{id}', 'JobTypeController@destroy');
+
+# Job Priority Routes
+// List job Priorities
+Route::get('jobpriorities', 'JobPriorityController@index');
+//  get one job Priority
+Route::get('jobpriority/{id}', 'JobPriorityController@show');
+// Create new job Priority
+Route::post('jobpriority', 'JobPriorityController@store');
+// Update job Priority
+Route::put('jobpriority', 'JobPriorityController@store');
+// Delete job Priority
+Route::delete('jobpriority/{id}', 'JobPriorityController@destroy');
+
+# Documentation Type Routes
+// List Documentation Types
+Route::get('documentationtypes', 'DocumentationTypeController@index');
+//  get one Documentation Type
+Route::get('documentationtype/{id}', 'DocumentationTypeController@show');
+// Create new Documentation Type
+Route::post('documentationtype', 'DocumentationTypeController@store');
+// Update Documentation Type
+Route::put('documentationtype', 'DocumentationTypeController@store');
+// Delete Documentation Type
+Route::delete('documentationtype/{id}', 'DocumentationTypeController@destroy');
+
+# Fault Type Routes
+// List Fault Types
+Route::get('faulttypes', 'FaultTypeController@index');
+//  get one Fault Type
+Route::get('faulttype/{id}', 'FaultTypeController@show');
+// Create new Fault Type
+Route::post('faulttype', 'FaultTypeController@store');
+// Update Fault Type
+Route::put('faulttype', 'FaultTypeController@store');
+// Delete Fault Type
+Route::delete('faulttype/{id}', 'FaultTypeController@destroy');
+
+# Asset Image Record Routes
+// List Asset Image Records
+Route::get('assetimagerecords', 'AssetImageRecordController@index');
+//  get each Asset Image Record
+Route::get('assetimagerecord/{id}', 'AssetImageRecordController@show');
+// Create new Asset Image Record
+Route::post('assetimagerecord', 'AssetImageRecordController@store');
+// Update Asset Image Record
+Route::put('assetimagerecord', 'AssetImageRecordController@store');
+// Delete Asset Image Record
+Route::delete('assetimagerecord/{id}', 'AssetImageRecordController@destroy');

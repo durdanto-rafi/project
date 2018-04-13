@@ -13,7 +13,8 @@ class LabelName extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'description' => $this->description
+            'description' => $this->description,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

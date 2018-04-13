@@ -42,6 +42,7 @@ class SparesController extends Controller
         $spare->spare_manufacturar_id = $request->input('spare_manufacturar_id');
         $spare->minimum_stock = $request->input('minimum_stock');
         $spare->current_stock = $request->input('current_stock');
+        $spare->update_by = $request->input('update_by');
 
         if($spare->save()) {
             return new SparesResource($spare);

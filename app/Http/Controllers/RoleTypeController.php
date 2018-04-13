@@ -35,6 +35,7 @@ class RoleTypeController extends Controller
 
         $roleType->id = $request->input('id');
         $roleType->name = $request->input('name');
+        $roleType->update_by = $request->input('update_by');
 
         if($roleType->save()) {
             return new RoleTypeResource($roleType);

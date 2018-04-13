@@ -18,6 +18,7 @@ class CreateAccountBlockAssociationsTable extends Migration
             $table->string('account_id');
             $table->string('block_id');
             $table->string('block_stat_id');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

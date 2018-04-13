@@ -35,7 +35,7 @@ class BlockController extends Controller
 
         $blocks->id = $request->input('id');
         $blocks->blocks_name = $request->input('blocks_name');
-
+        $blocks->update_by = $request->input('update_by');
         if($blocks->save()) {
             return new BlockResource($blocks);
         }

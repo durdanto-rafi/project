@@ -13,7 +13,8 @@ class CustomerBlockAssociation extends JsonResource
         return [
             'id' => $this->id,
             'company_id' => $this->company_id,
-            'block_id' => $this->block_id
+            'block_id' => $this->block_id,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

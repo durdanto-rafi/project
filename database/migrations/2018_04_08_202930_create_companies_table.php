@@ -21,6 +21,7 @@ class CreateCompaniesTable extends Migration
             $table->string('links');
             $table->string('email');
             $table->string('address');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

@@ -20,7 +20,8 @@ class Spares extends JsonResource
             'spare_description' => $this->spare_description,
             'spare_manufacturar_id' => $this->spare_manufacturar_id,
             'minimum_stock' => $this->minimum_stock,
-            'current_stock' => $this->current_stock,   
+            'current_stock' => $this->current_stock,
+            'update_by' => $this->update_by   
         ];
     }
     public function with($request) {

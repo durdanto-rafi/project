@@ -36,7 +36,7 @@ class CustomerBlockAssociationController extends Controller
         $customerblockassociations->id = $request->input('id');
         $customerblockassociations->company_id = $request->input('company_id');
         $customerblockassociations->block_id = $request->input('block_id');
-
+        $customerblockassociations->update_by = $request->input('update_by');
         if($customerblockassociations->save()) {
             return new CustomerBlockAssociationResource($customerblockassociations);
         }

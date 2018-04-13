@@ -14,7 +14,8 @@ class ModelType extends JsonResource
             'id' => $this->id,
             'account_id' => $this->company_id,
             'model_make' => $this->model_make,
-            'model_type' => $this->model_type
+            'model_type' => $this->model_type,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

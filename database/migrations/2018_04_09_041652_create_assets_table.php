@@ -24,6 +24,7 @@ class CreateAssetsTable extends Migration
             $table->string('asset_quality');
             $table->string('asset_cost');
             $table->string('asset_status');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

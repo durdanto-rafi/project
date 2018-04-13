@@ -41,7 +41,7 @@ class CompanyController extends Controller
         $companies->links = $request->input('links');
         $companies->email = $request->input('email');
         $companies->address = $request->input('address');
-
+        $companies->update_by = $request->input('update_by');
         if($companies->save()) {
             return new CompanyResource($companies);
         }
@@ -92,5 +92,65 @@ class CompanyController extends Controller
 
         // Return single companies as a resource
         return response()->json(['companies' => $companies]);
+    }
+
+     /**
+     * Show the application getSubjectContents.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function getAssetsByCompanyId(Request $request)
+    {
+        //$this->transcribeAll($request->subject_number);
+        if($request->ajax()){
+    		$data = DB::select("SELECT
+                            `assets`.`id` AS `id`,
+                            `companies`.`company_name` AS `company_name`,
+                            `model_types`.`model_make` AS `model_make`,
+                            `model_types`.`model_type` AS `model_type`,
+                            `assets`.`asset_name` AS `asset_name`,
+                            `assets`.`label_value` AS `label_value`,
+                            `assets`.`asset_description` AS `asset_description`,
+                            `assets`.`asset_quality` AS `asset_quality`,
+                            `assets`.`asset_cost` AS `asset_cost`,
+                            `assets`.`asset_status` AS `asset_status`
+                        FROM
+                            (
+                                (
+                                    (
+                                        (
+                                            `asset_models`
+                                            JOIN `assets` ON (
+                                                (
+                                                    `asset_models`.`id` = `assets`.`model_id`
+                                                )
+                                            )
+                                        )
+                                        JOIN `model_types` ON (
+                                            (
+                                                `model_types`.`id` = `asset_models`.`model_type`
+                                            )
+                                        )
+                                    )
+                                    JOIN `companies` ON (
+                                        (
+                                            `companies`.`id` = `assets`.`company_id`
+                                        )
+                                    )
+                                )
+                                JOIN `label_names` ON (
+                                    (
+                                        `label_names`.`id` = `assets`.`label_id`
+                                    )
+                                )
+                            )
+                        WHERE
+                            (
+                                `companies`.`id` = ?
+                            )", [$request->companyId]);
+
+            
+            return response()->json(['assets'=> $data]);
+    	}
     }
 }

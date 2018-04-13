@@ -12,7 +12,8 @@ class Activity extends JsonResource
 
         return [
             'id' => $this->id,
-            'activity_name' => $this->activity_name
+            'activity_name' => $this->activity_name,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

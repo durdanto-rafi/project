@@ -14,7 +14,8 @@ class Module extends JsonResource
             'id' => $this->id,
             'block_id' => $this->block_id,
             'module_name' => $this->module_name,
-            'comment' => $this->comment
+            'comment' => $this->comment,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

@@ -18,6 +18,7 @@ class CreateModulesTable extends Migration
             $table->string('block_id');
             $table->string('module_name');
             $table->string('comment');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

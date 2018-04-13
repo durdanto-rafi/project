@@ -18,6 +18,7 @@ class CreateModelTypesTable extends Migration
             $table->string('company_id');
             $table->string('model_make');
             $table->string('model_type');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

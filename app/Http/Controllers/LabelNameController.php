@@ -36,6 +36,7 @@ class LabelNameController extends Controller
         $labelnames->id = $request->input('id');
         $labelnames->name = $request->input('name');
         $labelnames->description = $request->input('description');
+        $labelnames->update_by = $request->input('update_by');
         
         if($labelnames->save()) {
             return new LabelNameResource($labelnames);

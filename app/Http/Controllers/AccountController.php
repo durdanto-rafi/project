@@ -36,7 +36,7 @@ class AccountController extends Controller
         $accounts->id = $request->input('id');
         $accounts->name = $request->input('name');
         $accounts->email = $request->input('email');
-
+        $accounts->update_by = $request->input('update_by');
         if($accounts->save()) {
             return new AccountResource($accounts);
         }

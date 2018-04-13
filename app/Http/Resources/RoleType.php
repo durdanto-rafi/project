@@ -18,7 +18,8 @@ class RoleType extends JsonResource
 
         return [
             'id' => $this->id,
-            'name' => $this->name
+            'name' => $this->name,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

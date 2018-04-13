@@ -17,6 +17,7 @@ class CreateCustomerBlockAssociationsTable extends Migration
             $table->increments('id');
             $table->string('company_id');
             $table->string('block_id');
+            $table->string('update_by');
             $table->timestamps();
         });
     }

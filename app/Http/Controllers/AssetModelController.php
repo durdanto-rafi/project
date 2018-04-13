@@ -41,7 +41,7 @@ class AssetModelController extends Controller
         $assetmodels->model_rent_frequency = $request->input('model_rent_frequency');
         $assetmodels->minimum_stock = $request->input('minimum_stock');
         $assetmodels->current_stock = $request->input('current_stock');
-
+        $assetmodels->update_by = $request->input('update_by');
         if($assetmodels->save()) {
             return new AssetModelResource($assetmodels);
         }

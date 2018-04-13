@@ -17,7 +17,8 @@ class Contact extends JsonResource
             'phone' => $this->phone,
             'email' => $this->email,
             'links' => $this->links,
-            'password' => $this->password
+            'password' => $this->password,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {

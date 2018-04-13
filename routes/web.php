@@ -17,3 +17,5 @@ Route::get('/', function () {
 
 // Load companies
 Route::get('loadCompanies', ['as'=>'loadCompanies','uses'=>'CompanyController@loadCompanies']);
+
+Route::post('getAssetsByCompanyId', ['as'=>'getAssetsByCompanyId','uses'=>'CompanyController@getAssetsByCompanyId']);

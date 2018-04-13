@@ -20,7 +20,8 @@ class Asset extends JsonResource
             'asset_description' => $this->asset_description,
             'asset_quality' => $this->asset_quality,
             'asset_status' => $this->asset_status,
-            'asset_cost' => $this->asset_cost
+            'asset_cost' => $this->asset_cost,
+            'update_by' => $this->update_by
         ];
     }
     public function with($request) {
